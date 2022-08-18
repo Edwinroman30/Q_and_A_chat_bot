@@ -1,0 +1,194 @@
+[
+    {
+        "bot_keywords": [
+            "Qu\u00e9",
+            "es",
+            "el",
+            "ITLA"
+        ],
+        "bot_response": "El Instituto Tecnol\u00f3gico de las Am\u00e9ricas es una instituci\u00f3n especializada en estudios t\u00e9cnicos-superiores en Santo Domingo en la Rep\u00fablica Dominicana.\u200b",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "En",
+            "qu\u00e9",
+            "a\u00f1o",
+            "fue",
+            "fundada",
+            "ITLA",
+            "por",
+            "Estado",
+            "Dominicano"
+        ],
+        "bot_response": "ITLA qued\u00f3 formalmente constituido como una instituci\u00f3n p\u00fablica mediante el Decreto No. 422-00, de fecha 15 de agosto del a\u00f1o 2000, emitido por el entonces Presidente de la Rep\u00fablica Dr. Leonel Fern\u00e1ndez, aunque la inauguraci\u00f3n se llev\u00f3 a cabo el 13 de agosto de ese a\u00f1o, consider\u00e1ndose esa la fecha de aniversario de la instituci\u00f3n.",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "Cu\u00e1l",
+            "es",
+            "la",
+            "fecha",
+            "de",
+            "Aniversario",
+            "del",
+            "ITLA"
+        ],
+        "bot_response": "Cada 15 de agosto se celebra el aniversario.",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "Cu\u00e1les",
+            "fueron",
+            "las",
+            "carreras",
+            "con",
+            "las",
+            "que",
+            "inici\u00f3",
+            "impartiendo",
+            "la",
+            "instituci\u00f3n"
+        ],
+        "bot_response": "Tecnolog\u00eda en Manufactura Automatizada, Redes Informaci\u00f3n y multimedia.",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "Qu\u00e9",
+            " significan",
+            "las",
+            " siglas",
+            "ITLA"
+        ],
+        "bot_response": "Instituto Tecnol\u00f3gico de las Am\u00e9ricas (ITLA)",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "Por",
+            "qu\u00e9",
+            "los",
+            "t\u00e9cnicos",
+            "de",
+            "all\u00e1",
+            "son",
+            "buenos",
+            "y",
+            "destacados"
+        ],
+        "bot_response": "La raz\u00f3n es por el modelo educativo, la pasi\u00f3n de los jovenes, los buenos docentes y los recursos que les provee.",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "Cu\u00e1nto",
+            "cuesta",
+            "costo",
+            "en",
+            "ITLA"
+        ],
+        "bot_response": "Se paga 500 pesos por derecho de adminisi\u00f3n en pleno octubre 2022.",
+        "is_single_response": true,
+        "bot_required_words": [
+            "cuanto",
+            "cuesta"
+        ]
+    },
+    {
+        "bot_keywords": [
+            "Cuantos",
+            "periodos",
+            "semestres",
+            "cuatrimestres",
+            "trimestres",
+            "dan",
+            "hay",
+            "en",
+            "ITLA"
+        ],
+        "bot_response": "El periodo es cuatrimestral, por lo tanto hay 3 cuatrimestre formales, para dictar clases.",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "Cuanto",
+            "se",
+            "paga",
+            "de",
+            "inscripci\u00f3n",
+            "inscripcion"
+        ],
+        "bot_response": "Hasta la fecha de Octubre 2022 se pagan 6,640 cada cuatrimestre.",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "D\u00f3nde",
+            "se",
+            "encuentran",
+            "ubicados",
+            "estan",
+            "recintos",
+            "por donde",
+            "ubicaci\u00f3n"
+        ],
+        "bot_response": "Autopista Las Am\u00e9ricas, Km. 27, PCSD, La Caleta, Boca Chica 11606 en SANTO DOMINGO.",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "Tiene",
+            "otros",
+            "recintos",
+            "facultades"
+        ],
+        "bot_response": "Santigo y Santo Domingo, m\u00e1s informaci\u00f3n v\u00edsita nuestra web.",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    },
+    {
+        "bot_keywords": [
+            "Es",
+            "ITLA",
+            "una",
+            "universidad"
+        ],
+        "bot_response": "Bueno \u00f1i\u00f1o, yo ni s\u00e9, lo que s\u00e9 es que me voy a graduar y que soy duro conjunto a unos panas.",
+        "is_single_response": true,
+        "bot_required_words": [
+            ""
+        ]
+    }
+]
