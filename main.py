@@ -1,60 +1,108 @@
-import re
-import random
+import json
+import os
+from Model import ChatBot as ChatBot
 
-def get_response(user_input):
-    split_message = re.split(r'\s|[,:;.?!-_]\s*', user_input.lower()) # \s -> Return a match at every white-space character:
-    response = check_all_messages(split_message)
-    return response
+# Where the term qa = QA = Questions & Answares
 
-def message_probability(user_message: list, recognized_words: list, single_response=False, required_word=[]):
-    message_certainty = 0
-    has_required_words = True
+def load_qa(file_path : str) -> list:
+    #here catch the json that contain an array of Q&A,
+    try:
+        with open(file_path, encoding="utf-8") as the_file:    
+            json_result = json.load(the_file)
+            #print(json_result)
+    except FileNotFoundError as e: #subclass of OSError
+        with open(file_path, "w") as the_file:
+                 the_file.write(json.dumps([]))
+        print("This file is not found, let create it. Please run the app again.")
+        exit()
+    except OSError as e:
+        print("Couldn't open file")
+    except PermissionError as e:
+        print("File is locked")
+    except ValueError as e:
+        print("Cannot parse data. Check file") 
+    except Exception as e:
+        print(type(e))
+        print(e)
+    finally:
+        the_file.close()
+        return json_result
+         
+def input_qa(file_path : str):
     
-    for word in user_message:
-        if word in recognized_words:
-            message_certainty +=1
+    ques_answ = dict()
+    ques_answ["bot_keywords"] = input("Separed each one by a comma, type the posibles keywords to match (Practicaly the question without question mark): ") 
+    ques_answ["bot_keywords"] = ques_answ["bot_keywords"].split(",")
+    #
+    ques_answ["bot_response"] = input("Type the posible boot answare: ")
+    #
+    ques_answ["is_single_response"] = input("Is going to be a single response?, (0 = NO, 1 = YES) ")
+    ques_answ["is_single_response"] = ques_answ["is_single_response"] == "0" if False else True
+    #
+    ques_answ["bot_required_words"] = input("Type the required words each one separed by comma: ").split(",")
 
-    percentage = float(message_certainty) / float (len(recognized_words))
-
-    for word in required_word:
-        if word not in user_message:
-            has_required_words = False
-            break
-        
-    #Por defecto siempre van a ver dos opciones explicitas por el usurio que haran que esta condicion
-    # se cumpla, la primera es que cuando no se quiere una palabra requerida, fijamente se coloca
-    # el parametro single_response = True, cuando se quieren palabras requeridas estas solo se
-    #asignan en el parametro required_words. Al final con esto siempre nos aseguraremos de que siempre
-    #nos devuelva el valor de porcentaje encontrado, si es que hay.    
+    print(json.dumps(ques_answ, indent = 4))
     
-    if has_required_words or single_response:                                             
-        return int(percentage * 100)
-    else:
-        return 0
-
-def check_all_messages(user_message : list) -> str:
-        highest_prob = {}
-
-        def response(bot_response : str, posible_inputs : list, single_response = False, required_words = []):
-            nonlocal highest_prob
-            highest_prob[bot_response] = message_probability(user_message, posible_inputs, single_response, required_words)
-            #posible_inputs = are posible questions inputs.
+    try:
+        with open(file_path, "r+", encoding="utf-8") as the_file:
+            # First we load existing data into a list of dicts.
+            json_result = json.load(the_file)
             
-        response('Hola', ['hola', 'klk', 'saludos', 'buenas'], single_response = True)
-        response('Estoy bien y tu?', ['como', 'estas', 'va', 'vas', 'sientes'], required_words=['como'])
-        response('Estamos ubicados en la calle 23 numero 123', ['ubicados', 'direccion', 'donde', 'ubicacion'], single_response=True)
-        response('Siempre a la orden', ['gracias', 'te lo agradezco', 'thanks'], single_response=True)
-
-        best_match = max(highest_prob, key=highest_prob.get)
-        print(highest_prob)
-
-        return unknown() if highest_prob[best_match] < 1 else best_match
-        #para dar la response le vamos a pasar en formato json
-
-def unknown():
-    response = ['puedes decirlo de nuevo?', 'No estoy seguro de lo quieres', 'búscalo en google a ver que tal'][random.randrange(3)]
-    return response
-
-while True:
-    print("Bot: " + get_response(input('You: ')))
+             # Join new_data with file_data inside emp_details
+            json_result.append(ques_answ)
+            
+            # Sets file's current position at offset.
+            the_file.seek(0)
+            
+             # convert back to json.            
+            the_file.write(json.dumps(json_result, indent = 4))
+            
+            print("Saved!")
+    except FileNotFoundError as e: #subclass of OSError
+        with open(file_path, "w") as the_file:
+                 the_file.write(json.dumps([]))
+        print("This file is not found, let create it. Please run the app again.")
+        exit()
+    except OSError as e:
+        print("Couldn't open file")
+    except PermissionError as e:
+        print("File is locked")
+    except ValueError as e:
+        print("Cannot parse data. Check file") 
+    except Exception as e:
+        print(type(e))
+        print(e)
+    finally:
+        the_file.close()
     
+def main():
+    
+    bot = ChatBot.ChatBot()
+    
+    print("""
+    1) Use the Bot.
+    2) Input a new Q&A.
+    3) Exit
+    """)
+
+    #Menu option
+    opt = int(input("> "))
+    
+    #Where is my json file!
+    _path = "QA.json"
+    
+    if(opt == 3):
+        print("Thank for choose us!")
+        exit()
+    elif opt == 2:
+        input_qa(_path)
+        os.system("cls")
+        main()
+    elif opt == 1:
+        #Loading the json.
+        bot.list_of_QA = load_qa(_path)
+        while True:
+            print("Bot: " + bot.get_response(input('You: ')))
+            
+#Entry Point.
+main()      
