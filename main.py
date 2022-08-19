@@ -5,7 +5,7 @@ from Model import ChatBot as ChatBot
 # Where the term qa = QA = Questions & Answares
 
 def load_qa(file_path : str) -> list:
-    #here catch the json that contain an array of Q&A,
+    """Here load the json that contain an array of Q&A with an specific structure."""
     try:
         with open(file_path, encoding="utf-8") as the_file:    
             json_result = json.load(the_file)
@@ -28,8 +28,10 @@ def load_qa(file_path : str) -> list:
         the_file.close()
         return json_result
          
-def input_qa(file_path : str):
-    
+def input_qa(file_path : str) -> None:
+    """
+    Allow us to insert the inputted data into a JSON file, having some interfaces to capture this values. 
+    """
     ques_answ = dict()
     ques_answ["bot_keywords"] = input("Separed each one by a comma, type the posibles keywords to match (Practicaly the question without question mark): ") 
     ques_answ["bot_keywords"] = ques_answ["bot_keywords"].split(",")
@@ -48,7 +50,7 @@ def input_qa(file_path : str):
             # First we load existing data into a list of dicts.
             json_result = json.load(the_file)
             
-             # Join new_data with file_data inside emp_details
+             # Join ques_answ the rest of the data.
             json_result.append(ques_answ)
             
             # Sets file's current position at offset.
@@ -105,4 +107,4 @@ def main():
             print("Bot: " + bot.get_response(input('You: ')))
             
 #Entry Point.
-main()      
+main()
